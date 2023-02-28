@@ -7,6 +7,7 @@ const morgan = require('morgan')
 morgan.token('id', (request) => request.params.id)
 morgan.token('body', (request) => JSON.stringify(request.body))
 
+app.use(express.static('build'))
 app.use(morgan(':id :url :method :body'))
 app.use(express.json())
 app.use(cors())
